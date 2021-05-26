@@ -78,7 +78,8 @@ Contoh input: c untuk celcius r untuk reamur
         hasil=((y-273.15)*9/5)+32
     else:
         print("Cek Kembali Input")
-    print(y,dari,'dikonversi ke',ke,"sama dengan",hasil,ke)
+    pembulatan = round(hasil,2)
+    print(y,dari,'dikonversi ke',ke,"sama dengan",pembulatan,ke)
     while True:#to restart program "end"
         answer = str(input('\nLagi? (y/n): '))
         if answer in ('y', 'n'):
