@@ -1,5 +1,5 @@
 
-from os import system
+from os import pipe, system
 import platform
 
 def clean():
@@ -24,7 +24,7 @@ Contoh input: c untuk celcius r untuk reamur
     dari = ''
     ke = ''
     #untuk dari
-    while dari != 'C' and dari != 'K' and dari != 'F' and dari != 'R':
+    while dari not in ['C','R','K','F']:
         try:
             dari = input('dari: ').upper()
         except (EOFError, KeyboardInterrupt):
@@ -32,7 +32,7 @@ Contoh input: c untuk celcius r untuk reamur
             exit()
 
     #untuk ke
-    while ke != 'C' and ke != 'K' and ke != 'F' and ke != 'R':
+    while ke not in ['C','R','K','F']:
         try:
             ke = input('ke: ').upper()
         except(EOFError,KeyboardInterrupt):
@@ -53,31 +53,32 @@ Contoh input: c untuk celcius r untuk reamur
         
 #Main Converter Program
     if(x=="C to F"):
-        print('Hasil:',(y*9/5)+32,"F")
+        hasil=(y*9/5)+32
     elif(x=="C to R"):
-        print('Hasil:',4/5*y,"R")
+        hasil=4/5*y
     elif(x=="C to K"):
-        print ('Hasil:',y+273,"K")
+        hasil=y+273.15
     elif (x=="F to C"):
-        print('Hasil:',5/9*(y-32),"C")
+        hasil=5/9*(y-32)
     elif(x=="F to R"):
-        print ('Hasil:',4/9*(y-32),"R")
+        hasil=4/9*(y-32)
     elif (x=="F to K"):
-        print ('Hasil:',(5/9*(y-32))+273,"K")
+        hasil=(5/9*(y-32))+273.15
     elif(x=="R to C"):
-        print('Hasil:',5/4*y,"C")
+        hasil=5/4*y
     elif(x=="R to F "):
-        print ('Hasil:',(9/4*y)+32,"F")
+        hasil=(9/4*y)+32
     elif(x=="R to K"):
-        print('Hasil:',(5/4*y)+273,"K")
+        hasil=(5/4*y)+273.15
     elif(x=="K to C"):
-        print('Hasil:',y-273,"C")
+        hasil=y-273.15
     elif(x=="K to R"):
-        print('Hasil:',4/5*(y-273),"R")
+        hasil=4/5*(y-273.15)
     elif (x=="K to F"):
-        print('Hasil:',((y-273)*9/5)+32,"F")
+        hasil=((y-273.15)*9/5)+32
     else:
         print("Cek Kembali Input")
+    print(y,dari,'dikonversi ke',ke,"sama dengan",hasil,ke)
     while True:#to restart program "end"
         answer = str(input('\nLagi? (y/n): '))
         if answer in ('y', 'n'):
