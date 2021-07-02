@@ -12,19 +12,22 @@ def clean():
     else:
         system('clear')
 
+def welcome():
+    print ('''==========Konversi Temperature==========
+Contoh input: c untuk celcius r untuk reamur
+''')
 
 #==================================================
 
 clean()
+welcome()
 while True:#to restart program "Start"
-    print ('''==========Konversi Temperature==========
-Contoh input: c untuk celcius r untuk reamur
-''')
 #for determine from ke convert input
     dari = ''
     ke = ''
+    inputUser = ('C', 'R', 'K', 'F')
     #untuk dari
-    while dari not in ['C','R','K','F']:
+    while dari not in inputUser:
         try:
             dari = input('dari: ').upper()
         except (EOFError, KeyboardInterrupt):
@@ -32,7 +35,7 @@ Contoh input: c untuk celcius r untuk reamur
             exit()
 
     #untuk ke
-    while ke not in ['C','R','K','F']:
+    while ke not in inputUser:
         try:
             ke = input('ke: ').upper()
         except(EOFError,KeyboardInterrupt):
